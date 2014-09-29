@@ -31,12 +31,6 @@ describe('JID', function () {
             assert.equal(esc.toString(true), 'd\'artagnan@example.com')
         })
 
-        it('escape `/.fanboy@example.com`', function () {
-            var esc = new xmpp.JID('/.fanboy@example.com')
-            assert.equal(esc.toString(), '\\2f.fanboy@example.com')
-            assert.equal(esc.toString(true), '/.fanboy@example.com')
-        })
-
         it('escape `::foo::@example.com`', function () {
             var esc = new xmpp.JID('::foo::@example.com')
             assert.equal(esc.toString(), '\\3a\\3afoo\\3a\\3a@example.com')

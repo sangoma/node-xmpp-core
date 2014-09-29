@@ -39,6 +39,12 @@ describe('JID', function() {
             assert.equal(j.getDomain(), 'd')
             assert.equal(j.getResource(), null)
         })
+        it('Should split JID as expected - issue 81', function() {
+            var jid = new xmpp.JID('s-me-1-n3@somewhere/something@blah/ hello')
+            assert.equal(jid.getDomain(), 'somewhere')
+            assert.equal(jid.getLocal(), 's-me-1-n3')
+            assert.equal(jid.getResource(), 'something@blah/ hello')
+        })
         it('should allow access to jid parts using (old) keys', function() {
             var j = new xmpp.JID('u@d/r', '')
             assert.equal(j.user, 'u')
